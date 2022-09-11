@@ -17,14 +17,12 @@ RUN "C:/Program Files/Unity Hub/Unity Hub.exe" -- --headless install \
                                                --changeset %changeSet% \
                                                & if %ERRORLEVEL% EQU 1 exit 0
 
-ARG module
-RUN IF NOT %module% == "base" ( \
-    "C:/Program Files/Unity Hub/Unity Hub.exe" -- --headless install-modules \
+# (PONTOCO) Manually specify modules so that we can install multiple.
+RUN "C:/Program Files/Unity Hub/Unity Hub.exe" -- --headless install-modules \
                                                --version %version% \
-                                               --module %module% \
+                                               --module android --module windows-il2cpp \
                                                --childModules \
-                                               & if %ERRORLEVEL% EQU 1 exit 0 \
-    )
+                                               & if %ERRORLEVEL% EQU 1 exit 0 
 
 ############
 #  Editor  #
