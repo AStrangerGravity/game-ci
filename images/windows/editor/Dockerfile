@@ -53,3 +53,14 @@ RUN powershell -Command foreach ($service in 'nlasvc', 'netprofm') {"Set-Service
 
 # Packages/manifest.json could have git dependencies
 RUN choco install git --no-progress -y
+
+# (PTO) Install VC++ and Windows 10 SDK. Not distributed by game-ci for license reasons.
+RUN choco install visualstudio2017-workload-vctools --no-progress -y
+
+# Set environment variables for convenience when running the image.
+ENV UNITY_VERSION=$version
+ENV UNITY_CHANGESET=$changeSet
+ENV UNITY_PATH="C:/Program Files/Unity/Hub/Editor/$version"
+
+# Default to using powershell when opening a fresh version of this image.
+CMD ["powershell"]
