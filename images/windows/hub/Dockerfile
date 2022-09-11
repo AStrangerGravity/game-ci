@@ -1,4 +1,4 @@
-ARG baseImage="unityci/base:windows-latest"
+ARG baseImage="pto/win-base:latest"
 
 FROM $baseImage
 

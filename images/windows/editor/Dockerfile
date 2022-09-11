@@ -1,5 +1,5 @@
-ARG baseImage="unityci/base:windows-latest"
-ARG hubImage="unityci/hub:windows-latest"
+ARG baseImage="pontoco/win-base:latest"
+ARG hubImage="pontoco/hub:latest"
 
 #############
 #  Builder  #
